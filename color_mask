@@ -1,0 +1,26 @@
+shader colorMask(
+        color Input = color(0),
+        color Output = color(0),
+        color Selection = color(0),
+        float Threshold = 0.001,
+        output color Out = color(0) )
+{    
+    float min_r = Selection.r - Threshold;
+    float min_g = Selection.g - Threshold;
+    float min_b = Selection.b - Threshold;
+    
+    float max_r = Selection.r + Threshold;
+    float max_g = Selection.g + Threshold;
+    float max_b = Selection.b + Threshold;
+
+    if ( (Input.r >= min_r && Input.r <= max_r) && 
+         (Input.g >= min_g && Input.g <= max_g) &&
+         (Input.b >= min_b && Input.b <= max_b))
+    {
+        Out = Output;
+    }
+    else
+    {
+        Out = color(0.0);
+    }
+}
