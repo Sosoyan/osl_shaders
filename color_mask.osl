@@ -1,4 +1,4 @@
-shader colorMask(
+shader color_mask(
         color Input = color(0),
         color Output = color(0),
         color Selection = color(0),
